@@ -5,9 +5,9 @@ const app = express();
 const PORT = 1337;
 
 let messages = [
-	{title: 'yes', isDone: true},
-	{title: 'no', isDone: false},
-	{title: 'maybe', isDone: '?'},
+	{title: 'Angular 2 and Node.js connection', isDone: true},
+	{title: 'MongoDB connection', isDone: false},
+	{title: 'Publishing to Heroku', isDone: false},
 ];
 
 app.use('/', express.static(path.join(__dirname, '../public')));
