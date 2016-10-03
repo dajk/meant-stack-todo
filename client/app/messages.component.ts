@@ -28,7 +28,7 @@ export class MessagesComponent implements OnInit {
 	getMessages() {
 		this.messagesService.getMessages()
 			.subscribe(
-				res => this.messages = res._body,
+				res => this.messages = res,
 				err => this.errorMsg = err
 			)
 	}

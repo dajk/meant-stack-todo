@@ -1,7 +1,7 @@
-client/app/*.js
-client/app/*.map
-server/app/*.js
-server/app/*.map
+client/app/**/*.js
+client/app/**/*.js.map
+server/**/*.js
+server/**/*.js.map
 node_modules/
 typings/
 *.log
