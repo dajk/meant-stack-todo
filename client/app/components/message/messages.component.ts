@@ -50,8 +50,20 @@ export class MessagesComponent implements OnInit {
 		this.newMessage = Object.assign({}, this.newMessage, {
 			isDone: false
 		});
-		this.messages = [...this.messages, this.newMessage];
-		this.newMessage = {};
+		
+		this.messagesService.addMessage(this.newMessage)
+			.subscribe(
+				res => {
+					this.messages = [...this.messages, res.json()];
+					this.newMessage = {};
+				},
+				err => {
+					this.errorMsg = err;
+				}
+			);
+		
+		// this.messages = [...this.messages, this.newMessage];
+		// this.newMessage = {};
 	}
 
 }

@@ -11,4 +11,11 @@ messageRouter.get('/messages', (req: Request, res: Response, next: NextFunction)
 	});
 });
 
+messageRouter.post('/messages', (req: Request, res: Response, next: NextFunction) => {
+	Message.create(req.body, (err, newMessage) => {
+		if (err) res.status(400).send(err);
+		res.json(newMessage);
+	});
+});
+
 export default messageRouter;

@@ -1,6 +1,7 @@
 import * as express from 'express';
 import * as path from 'path';
 import * as mongoose from 'mongoose';
+import { json, urlencoded } from 'body-parser';
 import messageRouter from './routes/message.route';
 import createDefaultMessages from './mock-default-data';
 
@@ -13,6 +14,9 @@ mongoose.connect(MONGOURI + '/mean2', (err: Error) => {
 
 const app: express.Application = express();
 const PORT: number = 1337;
+
+app.use(json());
+app.use(urlencoded({ extended: false }));
 
 // Public folder to serve html (it's looking for index.html by default)
 app.use('/', express.static(path.join(__dirname, '../public')));

@@ -9,4 +9,8 @@ export class MessagesService {
 	getMessages() {
 		return this.http.get('/api/messages');
 	}
+
+	addMessage(newMessage: Object) {
+		return this.http.post('/api/messages', newMessage);
+	}
 }
