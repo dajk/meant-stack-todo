@@ -17,7 +17,7 @@ import { MessagesService } from '../../services/message/messages.service';
 			<li *ngFor="let message of messages">
 				<button (click)="removeMessage(message._id)">X</button>
 				<label>
-					<input type="checkbox" [ngModel]="message.isDone" (ngModelChange)="updateMessage(message)">
+					<input type="checkbox" [ngModel]="message.isDone" (ngModelChange)="updateMessage($event, message)">
 					{{ message.title }}
 				</label>
 			</li>
@@ -72,14 +72,14 @@ export class MessagesComponent implements OnInit {
 			);
 	}
 
-	updateMessage(message) {
+	updateMessage(isDone: Event, message: Object) {
 		const updatedMessage = Object.assign({}, message, {
-			isDone: !message.isDone
+			isDone: isDone
 		});
 
 		this.messagesService.updateMessage(updatedMessage)
 			.subscribe(
-				res => {},
+				res => { },
 				err => this.errorMsg = err
 			);
 	}
