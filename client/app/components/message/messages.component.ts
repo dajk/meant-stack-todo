@@ -15,8 +15,8 @@ import { MessagesService } from '../../services/message/messages.service';
 
 		<ul>
 			<li *ngFor="let message of messages">
+				<button (click)="removeMessage(message._id)">X</button>
 				<label>
-					<button (click)="removeMessage(message._id)">X</button>
 					<input type="checkbox" [ngModel]="message.isDone" (ngModelChange)="updateMessage(message)">
 					{{ message.title }}
 				</label>
