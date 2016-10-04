@@ -12,10 +12,24 @@ messageRouter.get('/messages', (req: Request, res: Response, next: NextFunction)
 });
 
 messageRouter.post('/messages', (req: Request, res: Response, next: NextFunction) => {
-	Message.create(req.body, (err, newMessage) => {
+	Message.create(req.body, (err, result) => {
 		if (err) res.status(400).send(err);
-		res.json(newMessage);
+		res.json(result);
 	});
+});
+
+messageRouter.delete('/messages/:id', (req: Request, res: Response, next: NextFunction) => {
+	Message.remove({_id: req.params.id}).exec((err: Error, result) => {
+		if (err) res.status(400).send(err);
+		res.json(req.params.id);
+	});
+});
+
+messageRouter.put('/messages/:id', (req: Request, res: Response, next: NextFunction) => {
+	Message.update({_id: req.params.id}, req.body).exec((err: Error, result) => {
+		if (err) res.status(400).send(err);
+		res.json(req.params.id);
+	})
 });
 
 export default messageRouter;

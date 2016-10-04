@@ -13,4 +13,12 @@ export class MessagesService {
 	addMessage(newMessage: Object) {
 		return this.http.post('/api/messages', newMessage);
 	}
+
+	removeMessage(id) {
+		return this.http.delete('/api/messages/' + id);
+	}
+
+	updateMessage(message: any) {
+		return this.http.put('/api/messages/' + message._id, message);
+	}
 }

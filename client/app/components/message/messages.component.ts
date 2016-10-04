@@ -9,14 +9,15 @@ import { MessagesService } from '../../services/message/messages.service';
 			<div>
 				<label for="message">Message</label>
 				<input type="text" id="message" [(ngModel)]="newMessage.title" autocomplete="off">
-				<button type="submit" (click)="onSubmit($event)">Submit</button>
+				<button type="submit" (click)="addMessage($event)">Submit</button>
 			</div>
 		</form>
 
 		<ul>
 			<li *ngFor="let message of messages">
 				<label>
-					<input type="checkbox" [checked]="message.isDone">
+					<button (click)="removeMessage(message._id)">X</button>
+					<input type="checkbox" [ngModel]="message.isDone" (ngModelChange)="updateMessage(message)">
 					{{ message.title }}
 				</label>
 			</li>
@@ -45,7 +46,7 @@ export class MessagesComponent implements OnInit {
 			);
 	}
 
-	onSubmit(e: Event) {
+	addMessage(e: Event) {
 		e.preventDefault();
 		this.newMessage = Object.assign({}, this.newMessage, {
 			isDone: false
@@ -57,13 +58,30 @@ export class MessagesComponent implements OnInit {
 					this.messages = [...this.messages, res.json()];
 					this.newMessage = {};
 				},
-				err => {
-					this.errorMsg = err;
-				}
+				err => this.errorMsg = err
 			);
-		
-		// this.messages = [...this.messages, this.newMessage];
-		// this.newMessage = {};
+	}
+
+	removeMessage(id) {
+		this.messagesService.removeMessage(id)
+			.subscribe(
+				res => this.messages = this.messages
+					.filter(item => item._id !== res.json())
+					.map(item => item),
+				err => this.errorMsg = err
+			);
+	}
+
+	updateMessage(message) {
+		const updatedMessage = Object.assign({}, message, {
+			isDone: !message.isDone
+		});
+
+		this.messagesService.updateMessage(updatedMessage)
+			.subscribe(
+				res => {},
+				err => this.errorMsg = err
+			);
 	}
 
 }
