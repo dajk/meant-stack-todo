@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessagesService } from '../../services/messages.service';
 import { Store } from '@ngrx/store';
-import { ADD_MESSAGE, REMOVE_MESSAGE, UPDATE_MESSAGE } from '../../reducers/message.reducer';
+import { ADD_MESSAGE, REMOVE_MESSAGE, UPDATE_MESSAGE, INIT_MESSAGES } from '../../reducers/message.reducer';
 import { Observable } from 'rxjs/Observable';
 import { MessageI } from '../../models/message.model';
 
@@ -48,7 +48,9 @@ export class MessagesComponent implements OnInit {
 	}
 
 	getMessages() {
-		this.messages = this._messagesService.getMessages();
+		this._messagesService.getMessages().subscribe(res => {
+			this._store.dispatch({ type: INIT_MESSAGES, payload: res });
+		});
 	}
 
 	addMessage(e: Event, newMessage: MessageI) {
@@ -69,7 +71,7 @@ export class MessagesComponent implements OnInit {
 
 	removeMessage(id) {
 		this._messagesService.removeMessage(id).subscribe(res => {
-			this._store.dispatch({ type: REMOVE_MESSAGE, payload: res.json()._id });
+			this._store.dispatch({ type: REMOVE_MESSAGE, payload: res.json() });
 		});
 	}
 
