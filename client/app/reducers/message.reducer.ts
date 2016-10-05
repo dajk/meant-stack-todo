@@ -17,9 +17,8 @@ export const messagesReducer: ActionReducer<any> = (state: MessageI[] = [], acti
 			];
 		case 'REMOVE_MESSAGE':
 			return state.filter(message => message._id !== action.payload);
-		case 'UPDATE_MESSAGE':
-			return state;
-		
+		// case 'UPDATE_MESSAGE':
+		// 	return state;
 		default:
 			return state;
 	}
