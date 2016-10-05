@@ -24,6 +24,7 @@
       // other libraries
       'rxjs':                      'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
+      '@ngrx':                     'npm:@ngrx'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -37,6 +38,17 @@
       'angular-in-memory-web-api': {
         main: './index.js',
         defaultExtension: 'js'
+      },
+      '@ngrx/core': {
+        main: 'bundles/core.umd.js',
+        format: 'cjs'
+      },
+      '@ngrx/store': {
+        main: 'bundles/store.umd.js',
+        format: 'cjs'
+      },
+      '@ngrx/effects': {
+        main: 'bundles/effects.umd.js'
       }
     }
   });

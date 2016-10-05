@@ -9,7 +9,13 @@
     "tsc": "tsc **/*.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "mongodb",
+    "expressjs",
+    "angular 2",
+    "node.js",
+    "typescript"
+  ],
   "author": "Radovan Hajdukovic <hajdukovic.radovan@gmail.com> (https://at.linkedin.com/in/radovan-hajdukovic-a2004984)",
   "license": "ISC",
   "dependencies": {
@@ -22,6 +28,9 @@
     "@angular/platform-browser-dynamic": "~2.0.1",
     "@angular/router": "~3.0.1",
     "@angular/upgrade": "~2.0.1",
+    "@ngrx/core": "1.2.0",
+    "@ngrx/effects": "2.0.0",
+    "@ngrx/store": "2.2.1",
     "angular-in-memory-web-api": "~0.1.1",
     "body-parser": "1.15.2",
     "bootstrap": "^3.3.7",

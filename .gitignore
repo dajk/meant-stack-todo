@@ -1,5 +1,5 @@
-client/app/**/*.js
-client/app/**/*.js.map
+client/**/*.js
+client/**/*.js.map
 server/**/*.js
 server/**/*.js.map
 node_modules/

@@ -5,6 +5,7 @@ import Message from '../models/message.model';
 const messageRouter: Router = Router();
 
 interface MessageI {
+	_id?: string,
 	title: string,
 	isDone: boolean
 }
