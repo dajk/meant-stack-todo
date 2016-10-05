@@ -6,14 +6,14 @@ import { EffectsModule          } from '@ngrx/effects';
 import { StoreModule            } from '@ngrx/store';
 import { AppComponent           } from './components/app/app.component';
 import { MessagesComponent      } from './components/message/messages.component';
-import { messageReducer         } from './reducers/message.reducer';
+import { messagesReducer        } from './reducers/message.reducer';
 
 @NgModule({
   imports:      [
     BrowserModule,
     FormsModule,
     HttpModule,
-    StoreModule.provideStore({ messages: messageReducer }, { messages: []})
+    StoreModule.provideStore({ messages: messagesReducer }, { messages: []})
   ],
   declarations: [ AppComponent, MessagesComponent ],
   bootstrap:    [ AppComponent ]
