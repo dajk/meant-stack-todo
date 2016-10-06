@@ -23,6 +23,11 @@ messageRouter.get('/messages', (req: Request, res: Response, next: NextFunction)
 });
 
 messageRouter.post('/messages', (req: RequestI, res: Response, next: NextFunction) => {
+	if (!req.body.title && req.body.title.length === 0) {
+		res.status(400).send('You cannot create message without string');
+		return;
+	}
+
 	Message.create(req.body, (err, result) => {
 		if (err) res.status(400).send(err);
 		res.json(result);
@@ -39,7 +44,7 @@ messageRouter.delete('/messages/:id', (req: RequestI, res: Response, next: NextF
 messageRouter.put('/messages/:id', (req: RequestI, res: Response, next: NextFunction) => {
 	Message.update({_id: req.params.id}, req.body).exec((err, result) => {
 		if (err) res.status(400).send(err);
-		res.json(req.params.id);
+		res.json(req.body);
 	})
 });
 

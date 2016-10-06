@@ -17,8 +17,18 @@ export const messagesReducer: ActionReducer<any> = (state: MessageI[] = [], acti
 			];
 		case 'REMOVE_MESSAGE':
 			return state.filter(message => message._id !== action.payload);
-		// case 'UPDATE_MESSAGE':
-		// 	return state;
+		case 'UPDATE_MESSAGE':
+			return state.map((message: MessageI) => {
+				if (message._id === action.payload._id) {
+					return {
+						_id: action.payload._id,
+						title: action.payload.title,
+						isDone: action.payload.isDone
+					};
+				}
+				return message;
+			});
+			
 		default:
 			return state;
 	}

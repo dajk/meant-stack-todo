@@ -7,6 +7,7 @@ import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './components/app/app.component';
 import { MessagesComponent } from './components/message/messages.component';
 import { messagesReducer } from './reducers/message.reducer';
+import { StatusPipe } from './pipes/message.pipe';
 
 @NgModule({
   imports: [
@@ -15,7 +16,7 @@ import { messagesReducer } from './reducers/message.reducer';
     HttpModule,
     StoreModule.provideStore({ messages: messagesReducer }, { messages: [] })
   ],
-  declarations: [ AppComponent, MessagesComponent ],
+  declarations: [ AppComponent, MessagesComponent, StatusPipe ],
   bootstrap:    [ AppComponent ]
 })
 

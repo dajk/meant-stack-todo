@@ -8,33 +8,16 @@ import { MessageI } from '../../models/message.model';
 @Component({
 	moduleId: module.id,
 	selector: 'messages',
-	template:`
-		<form ngNoForm>
-			<div>
-				<label for="message">Message</label>
-				<input type="text" id="message" [(ngModel)]="newMessage.title" autocomplete="off">
-				<button type="submit" (click)="addMessage($event, newMessage)">Submit</button>
-			</div>
-		</form>
-
-		<ul>
-			<li *ngFor="let message of messages | async">
-				<button (click)="removeMessage(message._id)">X</button>
-				<label>
-					<input type="checkbox" [ngModel]="message.isDone" (ngModelChange)="updateMessage($event, message)">
-					{{ message.title }}
-				</label>
-			</li>
-		</ul>
-		<div *ngIf="!(messages | async) || !(messages | async)?.length">Error: {{errorMsg}}</div>
-	`,
+	templateUrl: 'messages.component.html',
 	providers: [MessagesService],
 })
 
 export class MessagesComponent implements OnInit {
-	errorMsg: string = 'You should add your first message';
+	errorMsg: string;
 	messages: Observable<MessageI[]>;
 	newMessage: MessageI = { title: '', isDone: false };
+	statuses: string[] = ['all', 'started', 'completed'];
+	status: string;
 
 	constructor(
 		private _messagesService: MessagesService,
@@ -45,6 +28,7 @@ export class MessagesComponent implements OnInit {
 
 	ngOnInit() {
 		this.getMessages();
+		this.status = this.statuses[0];
 	}
 
 	getMessages() {
@@ -64,8 +48,9 @@ export class MessagesComponent implements OnInit {
 					isDone: res.isDone
 				}
 			});
-		});
+		}, err => this.errorMsg = err.text());
 		
+		this.errorMsg = null;
 		this.newMessage.title = '';
 	}
 
@@ -81,8 +66,12 @@ export class MessagesComponent implements OnInit {
 		});
 
 		this._messagesService.updateMessage(updatedMessage).subscribe(res => {
-			this._store.dispatch({ type: UPDATE_MESSAGE, payload: message });
+			this._store.dispatch({ type: UPDATE_MESSAGE, payload: res.json() });
 		});
+	}
+
+	setStatus(status) {
+		this.status = status;
 	}
 
 }
