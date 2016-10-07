@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/dajk/MEAN2.svg?branch=master)](https://travis-ci.org/dajk/MEAN2)
+
 This is full stack implementation of popular MEAN stack technologies fully based on TypeScript.
 It includes Angular 2 as backend and MongoDB (Mongoose framework), Node.js (ExpressJS as framework).
 
