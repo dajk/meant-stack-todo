@@ -43,8 +43,5 @@ script:
 after_failure:
   - cat /home/travis/build/dajk/MEAN2/npm-debug.log
 
-after_success:
-  - npm run semantic-release
-
 branches:
   only: master
