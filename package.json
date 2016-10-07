@@ -7,7 +7,7 @@
     "start": "nodemon ./server/app",
     "tsc:w": "tsc && concurrently \"tsc -w\"",
     "tsc": "tsc",
-    "test": "karma start karma.conf.js debug --single-run"
+    "test": "karma start karma.conf.js --browsers PhantomJS debug --single-run"
   },
   "keywords": [
     "mongodb",
@@ -48,6 +48,7 @@
     "karma": "1.3.0",
     "karma-chrome-launcher": "2.0.0",
     "karma-jasmine": "1.0.2",
+    "karma-phantomjs-launcher": "1.0.2",
     "nodemon": "1.10.2",
     "typescript": "^2.0.3",
     "typings": "^1.4.0"
