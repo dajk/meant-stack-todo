@@ -2,12 +2,10 @@
   "globalDependencies": {
     "core-js": "registry:dt/core-js#0.0.0+20160725163759",
     "jasmine": "registry:dt/jasmine#2.2.0+20160621224255",
-    "mocha": "registry:dt/mocha#2.2.5+20160720003353",
     "node": "registry:dt/node#6.0.0+20160909174046"
   },
   "dependencies": {
     "body-parser": "registry:npm/body-parser#1.15.2+20160815132839",
-    "chai": "registry:npm/chai#3.5.0+20160723033700",
     "express": "registry:npm/express#4.14.0+20160925001530",
     "mongoose": "registry:npm/mongoose#4.3.5+20160628072220"
   }

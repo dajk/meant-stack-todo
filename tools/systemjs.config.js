@@ -49,6 +49,10 @@
       },
       '@ngrx/effects': {
         main: 'bundles/effects.umd.js'
+      },
+      'test': {
+        main: './index.spec.js',
+        defaultExtension: 'js'
       }
     }
   });

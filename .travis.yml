@@ -32,10 +32,13 @@ node_js:
   - '4'
 
 before_install:
-  - npm i -g npm@^2.0.0
+  - npm i -g npm
+  - npm config set spin false
+  - npm config set progress false
 
 before_script:
-  - npm prune
+  - npm install
+  - npm run tsd
 
 script:
   - npm test
