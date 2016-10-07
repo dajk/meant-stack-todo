@@ -1,8 +1,8 @@
 {
-  "name": "MEANstack",
+  "name": "meant-stack-todo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/app.js",
   "scripts": {
     "start": "nodemon ./server/app",
     "tsc:w": "tsc && concurrently \"tsc -w\"",
@@ -14,7 +14,8 @@
     "expressjs",
     "angular 2",
     "node.js",
-    "typescript"
+    "typescript",
+    "ngrx"
   ],
   "author": "Radovan Hajdukovic <hajdukovic.radovan@gmail.com> (https://at.linkedin.com/in/radovan-hajdukovic-a2004984)",
   "license": "ISC",

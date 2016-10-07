@@ -40,7 +40,7 @@ script:
   - npm test
 
 after_failure:
-  - cat /home/travis/build/dajk/MEAN2/npm-debug.log
+  - cat /home/travis/build/dajk/meant-stack-todo/npm-debug.log
 
 branches:
   only: master

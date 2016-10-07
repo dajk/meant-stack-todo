@@ -7,7 +7,7 @@ import createDefaultMessages from './mock-default-data';
 
 const MONGOURI: string = 'mongodb://localhost:27017';
 
-mongoose.connect(MONGOURI + '/mean2', (err: Error) => {
+mongoose.connect(MONGOURI + '/meant-stack-todo', (err: Error) => {
 	if (err) return err;
 	console.log('The mongodb has been connected on: ', MONGOURI);
 });
