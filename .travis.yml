@@ -38,6 +38,7 @@ before_install:
 
 before_script:
   - npm install
+  - typings install
   - npm run tsc
 
 script:
