@@ -38,7 +38,7 @@ before_install:
 
 before_script:
   - npm install
-  - npm run tsd
+  - npm run tsc
 
 script:
   - npm test
