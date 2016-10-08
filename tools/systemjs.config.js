@@ -12,7 +12,6 @@
     map: {
       // our app is within the app folder
       app: 'client/app',
-      test: 'test',
       // angular bundles
       '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
       '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
@@ -41,10 +40,6 @@
       },
       'angular-in-memory-web-api': {
         main: './index.js',
-        defaultExtension: 'js'
-      },
-      test: {
-        main: './index.spec.js',
         defaultExtension: 'js'
       }
     }
