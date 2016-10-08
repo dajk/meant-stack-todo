@@ -12,6 +12,7 @@
     map: {
       // our app is within the app folder
       app: 'client/app',
+      test: 'test',
       // angular bundles
       '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
       '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
@@ -21,6 +22,9 @@
       '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
       '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
+      // ngrx bundles
+      '@ngrx/core': 'npm:@ngrx/core/bundles/core.umd.js',
+      '@ngrx/store': 'npm:@ngrx/store/bundles/store.umd.js',
       // other libraries
       'rxjs':                      'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
@@ -39,18 +43,7 @@
         main: './index.js',
         defaultExtension: 'js'
       },
-      '@ngrx/core': {
-        main: 'bundles/core.umd.js',
-        format: 'cjs'
-      },
-      '@ngrx/store': {
-        main: 'bundles/store.umd.js',
-        format: 'cjs'
-      },
-      '@ngrx/effects': {
-        main: 'bundles/effects.umd.js'
-      },
-      'test': {
+      test: {
         main: './index.spec.js',
         defaultExtension: 'js'
       }

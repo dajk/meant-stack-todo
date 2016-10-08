@@ -7,7 +7,8 @@
     "start": "nodemon ./server/app",
     "tsc:w": "tsc && concurrently \"tsc -w\"",
     "tsc": "tsc",
-    "test": "karma start karma.conf.js --browsers PhantomJS debug --single-run"
+    "test": "karma start karma.conf.js --browsers PhantomJS debug --single-run",
+    "test:debug": "karma start karma.conf.js --browsers Chrome debug"
   },
   "keywords": [
     "mongodb",

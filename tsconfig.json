@@ -10,7 +10,9 @@
     "noImplicitAny": false
   },
   "filesGlob": [
-    "./**/*.ts",
-    "./client/app/**/*.ts"
+    "./client/**/*.ts",
+    "./client/app/**/*.ts",
+    "./server/**/*.ts",
+    "./test/**/*.spec.ts"
   ]
 }
