@@ -4,8 +4,8 @@
   "description": "",
   "main": "server/app.js",
   "scripts": {
-    "start": "nodemon ./server/app",
-    "tsc:w": "tsc && concurrently \"tsc -w\"",
+    "start": "concurrently \"npm run tsc:w\" \"nodemon ./server/app.js\" ",
+    "tsc:w": "tsc -w",
     "tsc": "tsc",
     "test": "karma start karma.conf.js --browsers PhantomJS debug --single-run",
     "test:debug": "karma start karma.conf.js --browsers Chrome debug"

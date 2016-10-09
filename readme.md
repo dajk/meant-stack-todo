@@ -23,10 +23,9 @@ For development purposes, you should have to install MongoDB on your local machi
 
 ### Dev Guide
 
-	1. sudo mongod -> 1st terminal to run the mongo server
-	2. mongo -> 2nd terminal to connect your own instance to mongo server
-	3. npm run tsc:w -> 3rd terminal to compile and watch all .ts files to .js
-	4. npm start -> 4th terminal to run the server (nodemon in our case)
+	1. sudo mongod 	# 1st terminal to run the mongo server
+	2. mongo 		# 2nd terminal to connect your own instance to mongo server
+	3. npm start 	# 3th terminal to compile and watch all .ts files to .js and run the server (nodemon in our case)
 
 Open [http://localhost:1337](http://localhost:1337) and you are ready to use. 
 
