@@ -6,17 +6,17 @@ node_js:
 sudo: false
 
 os:
-  - linux
-  - osx
+- linux
+- osx
 
 matrix:
   exclude:
-    - os: osx
-      node_js: 5
+  - os: osx
+    node_js: 5
 
 cache:
   directories:
-    - node_modules
+  - node_modules
 
 notifications:
   email: true
@@ -26,21 +26,29 @@ notifications:
     on_start: never
 
 before_install:
-  - npm i -g npm
-  - npm config set spin false
-  - npm config set progress false
-  - npm install typings -g
+- npm i -g npm
+- npm config set spin false
+- npm config set progress false
+- npm install typings -g
 
 before_script:
-  - npm install
-  - typings install
-  - npm run tsc
+- npm install
+- typings install
+- npm run tsc
 
 script:
-  - npm test
+- npm test
 
 after_failure:
-  - cat /home/travis/build/dajk/meant-stack-todo/npm-debug.log
+- cat /home/travis/build/dajk/meant-stack-todo/npm-debug.log
 
 branches:
   only: master
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: W3GIFKok9yyQ0mta/SaNzDHPFb0b6GCI3omjroeJg0jNTAGMXrs+iT06BOgw5ZWveEU9e2ArtGZUFcux7irk63z/LIoK0ruxj6LJSkVi2nBs3Kqh8LiJXkrBqEsif6pO8AqHeOXDeUXhRiSKRIXKoPtrVCwfZjl1MqdCdymRzqOeU4n0LgG+zPhnq/GNTtQk2+sJrINyd3lwd1hZbMHk0C9J5jtZgNQslaP9qH92iI/Tl2yCFC/8bjCMOz9nhe6ouHDKOxUdA9KpAjg7bC/3DN6pDINg+lnR0jrSIzOIVuAsKFySWymS90vwjBgFGhTlDZ0/6Hwas3i4IfsnhNE4DVDhRWO8CXHytZUdTGS2dMv4op0n6gKU0RKGULpu7jcPF7y/a2sGhgZRepSOEoBSX5AKCOcIsYbLNhG3Xzc1qH8MEPw46aQRSRGws63r1SHX+vRlQ5ZCaxFYoCzoEP3mf48hTvntOoHYPOXHIqdE9Z5fCDSDW+dgYHOp+CdwMR2yYfo+BtPK8ACBOlyHW/zpQ72u/5NZ5nZoBvZW3pOva9daXuETRHx16XPWctUGmGsXRQDZXcycqSzgOf0q/hgm4el+gHdy8xIs7837oQm3o16PqQEeZHQ1yDy0sYyteeFIt8kBl9GAYLY1EGnyYL19XwpeNN/ocUYFjWYYfO4bC+0=
+  app: meant-stack-todo
+  on:
+    repo: dajk/meant-stack-todo
