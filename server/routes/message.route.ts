@@ -16,17 +16,19 @@ interface RequestI extends Request {
 }
 
 messageRouter.get('/messages', (req: Request, res: Response, next: NextFunction) => {
-	Message.find({}).exec((err, results: any[]) => {
+	Message.find({}).sort({'isDone': 1}).exec((err, results: any[]) => {
 		if (err) return err;
 		res.json(results);
 	});
 });
 
 messageRouter.post('/messages', (req: RequestI, res: Response, next: NextFunction) => {
-	if (!req.body.title && req.body.title.length === 0) {
-		res.status(400).send('You cannot create message without string');
+	if (!req.body.title.trim() && req.body.title.trim().length === 0) {
+		res.status(400).json({message: 'You cannot create message without string'});
 		return;
 	}
+
+	req.body.title = req.body.title.trim();
 
 	Message.create(req.body, (err, result) => {
 		if (err) res.status(400).send(err);
@@ -42,6 +44,13 @@ messageRouter.delete('/messages/:id', (req: RequestI, res: Response, next: NextF
 });
 
 messageRouter.put('/messages/:id', (req: RequestI, res: Response, next: NextFunction) => {
+	if (!req.body.title.trim() && req.body.title.trim().length === 0) {
+		res.status(400).json({message: 'You cannot update message without string'});
+		return;
+	}
+
+	req.body.title = req.body.title.trim();
+
 	Message.update({_id: req.params.id}, req.body).exec((err, result) => {
 		if (err) res.status(400).send(err);
 		res.json(req.body);

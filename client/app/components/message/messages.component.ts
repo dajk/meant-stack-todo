@@ -49,30 +49,45 @@ export class MessagesComponent implements OnInit {
 					isDone: res.isDone
 				}
 			});
-		}, err => this.errorMsg = err.text());
+			this.errorMsg = null;
+		}, err => this.errorMsg = err.json().message);
 		
-		this.errorMsg = null;
 		this.newMessage.title = '';
 	}
 
-	removeMessage(id) {
+	removeMessage(id: string) {
 		this._messagesService.removeMessage(id).subscribe(res => {
 			this._store.dispatch({ type: REMOVE_MESSAGE, payload: res.json() });
 		});
 	}
 
-	updateMessage(isDone, message: MessageI) {
+	updateStatus(isDone: boolean, message: MessageI) {
 		const updatedMessage = Object.assign({}, message, {
 			isDone: isDone
 		});
-
-		this._messagesService.updateMessage(updatedMessage).subscribe(res => {
-			this._store.dispatch({ type: UPDATE_MESSAGE, payload: res.json() });
-		});
+		this.updateMessage(updatedMessage);
 	}
 
-	setStatus(status) {
+	updateTitle(e: any, message: MessageI) {
+		if (e.code === 'Enter') {
+			e.preventDefault();
+			const title = e.target.textContent;
+			const updatedMessage = Object.assign({}, message, {
+				title: title
+			});
+			this.updateMessage(updatedMessage);
+		}
+	}
+
+	setStatus(status: string) {
 		this.status = status;
+	}
+
+	updateMessage(message: MessageI) {
+		this._messagesService.updateMessage(message).subscribe(res => {
+			this._store.dispatch({ type: UPDATE_MESSAGE, payload: res.json() });
+			this.errorMsg = null;
+		}, err => this.errorMsg = err.json().message);
 	}
 
 }

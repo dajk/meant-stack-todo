@@ -11,13 +11,12 @@
 		{{ status }}
 	</option>
 </select>
+
 <ul>
 	<li *ngFor="let message of messages | async | status: status">
 		<button (click)="removeMessage(message._id)">X</button>
-		<label>
-			<input type="checkbox" [ngModel]="message.isDone" (ngModelChange)="updateMessage($event, message)">
-			{{ message.title }}
-		</label>
+		<input type="checkbox" [ngModel]="message.isDone" (ngModelChange)="updateStatus($event, message)">
+		<span class="item-text" contentEditable="true" (keypress)="updateTitle($event, message)">{{ message.title }}</span>
 	</li>
 </ul>
 <div style="color: red" *ngIf="errorMsg">{{errorMsg}}</div>

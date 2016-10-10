@@ -5,6 +5,10 @@ import { Pipe } from '@angular/core';
 
 export class StatusPipe {
   transform(array: MessageI[], status) {
+    // array.sort((a: any, b: any) => {
+    //   return a.isDone - b.isDone;
+    // });
+
     switch (status) {
       case 'all':
         return array;
