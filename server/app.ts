@@ -12,7 +12,7 @@ let configEnv: ConfigI;
 
 // Run specific environment
 (nodeEnv !== 'production')
-	?	configEnv = config.development
+	? configEnv = config.development
 	: configEnv = config.production;
 
 mongoose.connect(configEnv.MONGODB_URI + '/meant-stack-todo', (err: Error) => {

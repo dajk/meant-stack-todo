@@ -9,6 +9,7 @@ import { MessageI } from '../../models/message.model';
 	moduleId: module.id,
 	selector: 'messages',
 	templateUrl: 'messages.component.html',
+	styleUrls: ['messages.component.css'],
 	providers: [MessagesService],
 })
 

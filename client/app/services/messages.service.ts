@@ -19,11 +19,11 @@ export class MessagesService {
 			.map(res => res.json());
 	}
 
-	removeMessage(id: string) {
+	removeMessage(id: string): Observable<any> {
 		return this._http.delete(`/api/messages/${id}`);
 	}
 
-	updateMessage(message: MessageI) {
+	updateMessage(message: MessageI): Observable<any> {
 		return this._http.put(`/api/messages/${message._id}`, message);
 	}
 }
