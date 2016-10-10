@@ -21,7 +21,7 @@ mongoose.connect(configEnv.MONGODB_URI + '/meant-stack-todo', (err: Error) => {
 });
 
 const app: express.Application = express();
-const PORT: number = 1337;
+const PORT: number = process.env.PORT || 1337;
 
 app.use(json());
 app.use(urlencoded({ extended: false }));
