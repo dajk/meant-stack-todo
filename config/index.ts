@@ -5,7 +5,7 @@ export const config = {
 	},
 
 	production: {
-		SRC: '../dist',
+		SRC: '../client',
 		MONGODB_URI: process.env.MONGODB_URI || ''
 	}
 };
