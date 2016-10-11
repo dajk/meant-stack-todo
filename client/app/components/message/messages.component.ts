@@ -69,7 +69,7 @@ export class MessagesComponent implements OnInit {
 	}
 
 	updateTitle(e: any, message: MessageI) {
-		if (e.code === 'Enter') {
+		if (e.keyCode === 13) {
 			e.preventDefault();
 			const title = e.target.textContent;
 			const updatedMessage = Object.assign({}, message, {

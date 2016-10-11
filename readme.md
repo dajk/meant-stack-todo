@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/dajk/meant-stack-todo.svg?branch=master)](https://travis-ci.org/dajk/meant-stack-todo)
+[![dependencies Status](https://david-dm.org/dajk/meant-stack-todo/status.svg)](https://david-dm.org/dajk/meant-stack-todo)
+[![devDependencies Status](https://david-dm.org/dajk/meant-stack-todo/dev-status.svg)](https://david-dm.org/dajk/meant-stack-todo?type=dev)
 
 This is full stack implementation of popular __mean__ stack technologies, the last __t__ is TypeScript.
 Aplication is fully written with TypeScript and compiled to regular JS.
