@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
-const messageSchema = new Schema({
+const itemSchema = new Schema({
 	title: {
 		type: String,
 		trim: true,
@@ -10,6 +10,6 @@ const messageSchema = new Schema({
 	isDone: Boolean
 });
 
-const Message = mongoose.model('Message', messageSchema);
+const Item = mongoose.model('Item', itemSchema);
 
-export default Message;
+export default Item;

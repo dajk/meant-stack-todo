@@ -3,7 +3,7 @@
 [![devDependencies Status](https://david-dm.org/dajk/meant-stack-todo/dev-status.svg)](https://david-dm.org/dajk/meant-stack-todo?type=dev)
 
 This is full stack implementation of popular __mean__ stack technologies, the last __t__ is TypeScript.
-Aplication is fully written with TypeScript and compiled to regular JS.
+Application is fully written with TypeScript and compiled to regular JS.
 
 It includes:
 
@@ -21,7 +21,7 @@ It includes:
 
 -
 
-For development purposes, you should have to install MongoDB on your local machine and run it as first two steps in guide below.
+For development purposes, you should have to install MongoDB on your local machine and run it as first two steps in the guide below.
 
 ### Dev Guide
 

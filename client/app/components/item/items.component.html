@@ -1,0 +1,22 @@
+<form ngNoForm>
+	<div>
+		<label for="item">Item</label>
+		<input type="text" id="item" [(ngModel)]="newItem.title" autocomplete="off">
+		<button type="submit" (click)="addItem($event, newItem)">Submit</button>
+	</div>
+</form>
+
+<select #sel (change)="setStatus(sel.value)" style="margin-top: 16px;">
+	<option *ngFor="let status of statuses">
+		{{ status }}
+	</option>
+</select>
+
+<ul>
+	<li *ngFor="let item of items | async | status: status">
+		<button (click)="removeItem(item._id)">X</button>
+		<input type="checkbox" [ngModel]="item.isDone" (ngModelChange)="updateStatus($event, item)">
+		<span class="item-text" contentEditable="true" (keypress)="updateTitle($event, item)">{{ item.title }}</span>
+	</li>
+</ul>
+<div style="color: red" *ngIf="errorMsg">{{errorMsg}}</div>

@@ -5,18 +5,18 @@ import { FormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './components/app/app.component';
-import { MessagesComponent } from './components/message/messages.component';
-import { messagesReducer } from './reducers/message.reducer';
-import { StatusPipe } from './pipes/message.pipe';
+import { ItemsComponent } from './components/item/items.component';
+import { itemsReducer } from './reducers/item.reducer';
+import { StatusPipe } from './pipes/item.pipe';
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    StoreModule.provideStore({ messages: messagesReducer }, { messages: [] })
+    StoreModule.provideStore({ items: itemsReducer }, { item: [] })
   ],
-  declarations: [ AppComponent, MessagesComponent, StatusPipe ],
+  declarations: [ AppComponent, ItemsComponent, StatusPipe ],
   bootstrap:    [ AppComponent ]
 })
 

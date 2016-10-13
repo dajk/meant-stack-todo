@@ -2,8 +2,8 @@ import * as express from 'express';
 import * as path from 'path';
 import * as mongoose from 'mongoose';
 import { json, urlencoded } from 'body-parser';
-import messageRouter from './routes/message.route';
-import createDefaultMessages from './mock-default-data';
+import itemRouter from './routes/item.route';
+import createDefaultItems from './mock-default-data';
 import { config, ConfigI } from '../config/index';
 
 const nodeEnv: string = process.env.NODE_ENV || 'development';
@@ -36,11 +36,11 @@ app.use('/node_modules', express.static(path.join(__dirname, '../node_modules'))
 app.use('/', express.static(path.join(__dirname, '../tools')));
 
 // Router
-app.use('/api', messageRouter);
+app.use('/api', itemRouter);
 
 // Listening server on port ${PORT}
 app.listen(PORT, () => {
 	console.log('listening on port: ' + PORT);
 });
 
-createDefaultMessages();
+createDefaultItems();

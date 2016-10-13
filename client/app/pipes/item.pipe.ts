@@ -1,10 +1,10 @@
-import { MessageI } from '../models/message.model';
+import { ItemI } from '../models/item.model';
 import { Pipe } from '@angular/core';
 
 @Pipe({ name: 'status' })
 
 export class StatusPipe {
-  transform(array: MessageI[], status) {
+  transform(array: ItemI[], status) {
     // array.sort((a: any, b: any) => {
     //   return a.isDone - b.isDone;
     // });
