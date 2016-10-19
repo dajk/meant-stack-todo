@@ -29,15 +29,15 @@ before_install:
 - npm i -g npm
 - npm config set spin false
 - npm config set progress false
-- npm install typings -g
+- npm i -g typings yarn
 
 before_script:
-- npm install
+- yarn
 - typings install
-- npm run tsc
+- yarn run tsc
 
 script:
-- npm test
+- yarn test
 
 after_failure:
 - cat /home/travis/build/dajk/meant-stack-todo/npm-debug.log

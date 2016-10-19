@@ -13,11 +13,12 @@ It includes:
 
 ### Installation  Guide
 
-	1. git clone https://github.com/dajk/meant-stack-todo.git
-	2. cd meant-stack-todo
-	3. npm install
-	4. npm i -g typings
-	5. typings install
+First of all, you have to have `typings` installed (`yarn` is just for performance reasons)
+
+  1. git clone https://github.com/dajk/meant-stack-todo.git
+  2. cd meant-stack-todo
+  3. yarn (or npm install)
+  4. typings install
 
 -
 
@@ -25,9 +26,9 @@ For development purposes, you should have to install MongoDB on your local machi
 
 ### Dev Guide
 
-	1. sudo mongod 	# 1st terminal to run the mongo server
-	2. mongo 		# 2nd terminal to connect your own instance to mongo server
-	3. npm start 	# 3th terminal to compile and watch all .ts files to .js and run the server (nodemon in our case)
+  1. sudo mongod # 1st terminal to run the mongo server
+  2. mongo # 2nd terminal to connect your own instance to mongo server
+  3. yarn start (or npm start) # 3th terminal to compile and watch all .ts files to .js and run the server (nodemon in our case)
 
 Open [http://localhost:1337](http://localhost:1337) and you are ready to use. 
 
