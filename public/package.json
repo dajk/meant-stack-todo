@@ -1,0 +1,18 @@
+{
+  "name": "public",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bundle.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Radovan Hajdukovic <hajdukovic.radovan@gmail.com> (https://at.linkedin.com/in/radovan-hajdukovic-a2004984)",
+  "license": "ISC",
+  "dependencies": {
+    "core-js": "2.4.1",
+    "reflect-metadata": "0.1.8",
+    "systemjs": "0.19.39",
+    "zone.js": "0.6.26"
+  }
+}

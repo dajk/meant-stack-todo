@@ -11,11 +11,11 @@ const nodeEnv: string = process.env.NODE_ENV || 'development';
 let configEnv: ConfigI;
 
 // Run specific environment
-(nodeEnv !== 'production')
-	? configEnv = config.development
-	: configEnv = config.production;
+(nodeEnv === 'production')
+  ? configEnv = config.production
+  : configEnv = config.development;
 
-mongoose.connect(configEnv.MONGODB_URI + '/meant-stack-todo', (err: Error) => {
+mongoose.connect(configEnv.MONGODB_URI, (err: Error) => {
 	if (err) return err;
 	console.log('The mongodb has been connected on: ', configEnv.MONGODB_URI);
 });
@@ -26,14 +26,17 @@ const PORT: number = process.env.PORT || 1337;
 app.use(json());
 app.use(urlencoded({ extended: false }));
 
+if (nodeEnv !== 'production') {
+  // client path for any Angular 2 compiled script
+  app.use('/client', express.static(path.join(__dirname, configEnv.SRC)));
+  // Use node modules path as default
+  app.use('/node_modules', express.static(path.join(__dirname, '../node_modules')));
+  // System.js bundler
+  app.use('/', express.static(path.join(__dirname, '../tools')));
+}
+
 // Public folder to serve html (it's looking for index.html by default)
-app.use('/', express.static(path.join(__dirname, '../public')));
-// client path for any Angular 2 compiled script
-app.use('/client', express.static(path.join(__dirname, configEnv.SRC)));
-// Use node modules path as default
-app.use('/node_modules', express.static(path.join(__dirname, '../node_modules')));
-// System.js bundler
-app.use('/', express.static(path.join(__dirname, '../tools')));
+app.use('/', express.static(path.join(__dirname, configEnv.SRC)));
 
 // Router
 app.use('/api', itemRouter);

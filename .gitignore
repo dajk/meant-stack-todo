@@ -1,7 +1,3 @@
-client/**/*.js*
-server/**/*.js*
-test/**/*.js*
-config/**/*.js*
 node_modules/
 typings/
 *.log

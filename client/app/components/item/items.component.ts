@@ -6,10 +6,10 @@ import { Observable } from 'rxjs/Observable';
 import { ItemI } from '../../models/item.model';
 
 @Component({
-	moduleId: module.id,
+	// moduleId: module.id,
 	selector: 'items',
-	templateUrl: 'items.component.html',
-	styleUrls: ['items.component.css'],
+	templateUrl: './app/components/item/items.component.html',
+	styleUrls: ['./app/components/item/items.component.css'],
 	providers: [ItemsService],
 })
 

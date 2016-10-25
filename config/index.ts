@@ -1,12 +1,12 @@
 export const config = {
 	development: {
 		SRC: '../client',
-		MONGODB_URI: process.env.MONGODB_URI || 'mongodb://localhost:27017'
+		MONGODB_URI: process.env.MONGODB_URI || 'mongodb://localhost:27017/meant-stack-todo-dev'
 	},
 
 	production: {
-		SRC: '../client',
-		MONGODB_URI: process.env.MONGODB_URI || ''
+		SRC: '../public',
+		MONGODB_URI: process.env.MONGODB_URI || 'mongodb://localhost:27017/meant-stack-todo-prod'
 	}
 };
 

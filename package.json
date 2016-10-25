@@ -9,7 +9,12 @@
     "tsc": "tsc",
     "test": "karma start karma.conf.js --browsers PhantomJS debug --single-run",
     "test:debug": "karma start karma.conf.js --browsers Chrome debug",
-    "build:prod": "rimraf dist/ && tsc && cpx \"./client/**/*.{js,html,css}\" ./dist"
+    "clean:prod": "rimraf public/app/ public/systemjs.config.js public/bundle.min.js public/styles.css public/node_modules",
+    "cp:client": "cpx \"./tools/systemjs.config.js\" ./public/ && cpx \"./client/app/components/**/*.{html,css}\" ./public/app/components/ && cpx \"./client/styles.css\" ./public/",
+    "prebuild:prod": "",
+    "build:prod": "npm run clean:prod && tsc && npm run cp:client && node ./tools/builder.js",
+    "postbuild:prod": "cd public && npm i",
+    "postinstall": "typings install"
   },
   "keywords": [
     "mongodb",
@@ -54,6 +59,7 @@
     "karma-phantomjs-launcher": "1.0.2",
     "nodemon": "1.11.0",
     "rimraf": "2.5.4",
+    "systemjs-builder": "0.15.32",
     "typescript": "2.0.3",
     "typings": "1.4.0"
   },
