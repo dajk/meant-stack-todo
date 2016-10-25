@@ -13,23 +13,22 @@ It includes:
 
 ### Installation  Guide
 
-First of all, you have to have `typings` installed (`yarn` is just for performance reasons)
-
-  1. git clone https://github.com/dajk/meant-stack-todo.git
-  2. cd meant-stack-todo
-  3. yarn (or npm install)
-  4. typings install
+  1. `git clone https://github.com/dajk/meant-stack-todo.git`
+  2. `cd meant-stack-todo`
+  3. `yarn install` (or `npm install`)
 
 -
 
-For development purposes, you should have to install MongoDB on your local machine and run it as first two steps in the guide below.
-
 ### Dev Guide
 
-  1. sudo mongod # 1st terminal to run the mongo server
-  2. mongo # 2nd terminal to connect your own instance to mongo server
-  3. yarn start (or npm start) # 3th terminal to compile and watch all .ts files to .js and run the server (nodemon in our case)
+ - for development purposes, you should have installed [MongoDB](https://docs.mongodb.com/manual/installation/?jmp=footer) on your local machine and run it
+ - `yarn start` (or `npm start`)
+ - open [http://localhost:1337](http://localhost:1337) and start dancing
 
-Open [http://localhost:1337](http://localhost:1337) and you are ready to use. 
+#### Note: After any change in development mode you have to refresh the browser.
 
-#### Note: After save you have to refresh the browser.
+-
+
+### Production: 
+
+As you can see inside `.travis.yml`, before any deploy you should build the app (`yarn run build:prod`) and run the server, just like inside `Procfile` (`node server/app.js`)
