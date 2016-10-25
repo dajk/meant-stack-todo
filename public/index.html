@@ -15,6 +15,26 @@
     <!-- 2. Configure SystemJS -->
     <script src="systemjs.config.js"></script>
     <script src="bundle.min.js"></script>
+
+    <script type="text/javascript">
+      !function(name,path,ctx){
+        var latest,prev=name!=='Keen'&&window.Keen?window.Keen:false;ctx[name]=ctx[name]||{ready:function(fn){var h=document.getElementsByTagName('head')[0],s=document.createElement('script'),w=window,loaded;s.onload=s.onerror=s.onreadystatechange=function(){if((s.readyState&&!(/^c|loade/.test(s.readyState)))||loaded){return}s.onload=s.onreadystatechange=null;loaded=1;latest=w.Keen;if(prev){w.Keen=prev}else{try{delete w.Keen}catch(e){w.Keen=void 0}}ctx[name]=latest;ctx[name].ready(fn)};s.async=1;s.src=path;h.parentNode.insertBefore(s,h)}}
+      }('KeenAsync','https://d26b395fwzu5fz.cloudfront.net/keen-tracking-1.0.3.min.js',this);
+
+      KeenAsync.ready(function(){
+        // Configure a client instance
+        var client = new KeenAsync({
+          projectId: '580f804b8db53dfda8a75698',
+          writeKey: '229009E2E42D902FB822D364B9D2EE44AE5684D738789BEE56D6FC641211C62F1DEA089FA39EE990240F42F320A6F3D46EC97E176528CA3DC4810765C1911E5B6D9F3264E85BD5E7933EFD75F674C3BAB30CDCC0428394218829AFE9DCF0E008'
+        });
+
+        // Record an event
+        client.recordEvent('pageviews', {
+          title: document.title
+        });
+      });
+    </script>
+    
   </head>
   <!-- 3. Display the application -->
   <body>
