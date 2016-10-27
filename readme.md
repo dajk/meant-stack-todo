@@ -22,7 +22,7 @@ It includes:
 ### Dev Guide
 
  - for development purposes, you should have installed [MongoDB](https://docs.mongodb.com/manual/installation/?jmp=footer) on your local machine and run it
- - `yarn start` (or `npm start`)
+ - `npm start`
  - open [http://localhost:1337](http://localhost:1337) and start dancing
 
 #### Note: After any change in development mode you have to refresh the browser.
@@ -31,4 +31,4 @@ It includes:
 
 ### Production: 
 
-As you can see inside `.travis.yml`, before any deploy you should build the app (`yarn run build:prod`) and run the server, just like inside `Procfile` (`node server/app.js`)
+As you can see inside `.travis.yml`, before any deploy you should build the app (`npm run build:prod`) and run the server, just like inside `Procfile` (`node server/app.js`)
