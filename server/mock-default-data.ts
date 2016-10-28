@@ -6,7 +6,7 @@ import Item from './models/item.model';
  */
 
 let items: any[] = [
-	{title: 'Angular 2 and Node.js connection', isDone: true},
+  {title: 'Angular 2 and Node.js connection', isDone: true},
   {title: 'MongoDB connection', isDone: true},
   {title: 'Publishing to Heroku', isDone: true},
   {title: 'Add TravisCI', isDone: true},
@@ -25,9 +25,9 @@ let items: any[] = [
 ];
 
 function createDefaultItems(): void {
-	Item.find({}).exec((err: Error, results: any) => {
-		if (results.length === 0) Item.create(items);
-	});
+  Item.find({}).exec((err: Error, results: any) => {
+    if (results.length === 0) Item.create(items);
+  });
 }
 
 export default createDefaultItems;

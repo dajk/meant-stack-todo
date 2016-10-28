@@ -6,9 +6,9 @@ builder.loadConfig('./tools/systemjs.config.js')
 .then(function(){
   var outputFile = './public/bundle.min.js';
   return builder.buildStatic('app', outputFile, {
-      minify: true,
-      mangle: true,
-      rollup: true
+    minify: true,
+    mangle: true,
+    rollup: true
   });
 })
 .then(function() {
@@ -17,4 +17,4 @@ builder.loadConfig('./tools/systemjs.config.js')
 .catch(function(err) {
   console.log('Build error');
   console.log(err);
-})
+});

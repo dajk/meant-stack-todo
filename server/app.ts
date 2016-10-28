@@ -16,8 +16,8 @@ let configEnv: ConfigI;
   : configEnv = config.development;
 
 mongoose.connect(configEnv.MONGODB_URI, (err: Error) => {
-	if (err) return err;
-	console.log('The mongodb has been connected on: ', configEnv.MONGODB_URI);
+  if (err) return err;
+  console.log('The mongodb has been connected on: ', configEnv.MONGODB_URI);
 });
 
 const app: express.Application = express();
@@ -43,7 +43,7 @@ app.use('/api', itemRouter);
 
 // Listening server on port ${PORT}
 app.listen(PORT, () => {
-	console.log('listening on port: ' + PORT);
+  console.log('listening on port: ' + PORT);
 });
 
 createDefaultItems();

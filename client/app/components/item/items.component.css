@@ -1,10 +1,10 @@
 /* items */
 .item-text {
-	padding: 0.2em;
+  padding: 0.2em;
 }
 
 .item-text:focus {
-	border: none;
-	outline: 0;
-	color: #0a73ff;
+  border: none;
+  outline: 0;
+  color: #0a73ff;
 }

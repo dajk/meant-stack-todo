@@ -15,7 +15,7 @@ export class StatusPipe {
       case 'started':
         return array.filter(item => !item.isDone);
       case 'completed':
-		    return array.filter(item => item.isDone);
+        return array.filter(item => item.isDone);
       
       default:
         return array;
