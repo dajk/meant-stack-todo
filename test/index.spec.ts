@@ -1,4 +1,7 @@
-describe('test', () => {
-  it('should works', () => expect(true).toBe(true));
-  it('should be true', () => expect(true).toEqual(true));
+describe('first test', () => {
+
+  it('should render', () => {
+    expect(true).toBeTruthy();
+  });
+
 });

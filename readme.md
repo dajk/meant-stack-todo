@@ -13,11 +13,12 @@ It includes:
 
 ### Installation  Guide
 
-  1. `git clone https://github.com/dajk/meant-stack-todo.git`
-  2. `cd meant-stack-todo`
-  3. `yarn install` (or `npm install`)
+```bash
+  1. git clone https://github.com/dajk/meant-stack-todo.git
+  2. cd meant-stack-todo
+  3. yarn
+```
 
--
 
 ### Dev Guide
 
@@ -27,7 +28,6 @@ It includes:
 
 #### Note: After any change in development mode you have to refresh the browser.
 
--
 
 ### Production: 
 

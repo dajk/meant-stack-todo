@@ -62,7 +62,7 @@ export class ItemsComponent implements OnInit {
   }
 
   updateStatus(isDone: boolean, item: ItemI) {
-    const updatedItem = Object.assign({}, item, {
+    const updatedItem = (<any>Object).assign({}, item, {
       isDone: isDone
     });
     this.updateItem(updatedItem);
@@ -72,7 +72,7 @@ export class ItemsComponent implements OnInit {
     if (e.keyCode === 13) {
       e.preventDefault();
       const title = e.target.textContent;
-      const updatedItem = Object.assign({}, item, {
+      const updatedItem = (<any>Object).assign({}, item, {
         title: title
       });
       this.updateItem(updatedItem);

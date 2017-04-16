@@ -1,4 +1,7 @@
 node_modules/
-typings/
 *.log
 dist/
+client/**/*.js*
+config/**/*.js*
+server/**/*.js*
+test/**/*.js*
