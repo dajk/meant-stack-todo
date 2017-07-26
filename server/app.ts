@@ -17,13 +17,13 @@ let configEnv: ConfigI;
 
 // fix deprication warning (https://github.com/Automattic/mongoose/issues/4291#issuecomment-230312093)
 (<any>mongoose).Promise = global.Promise;
-mongoose.connect(configEnv.MONGODB_URI, (err: Error) => {
+mongoose.connect(configEnv.MONGODB_URI, {}, (err: Error) => {
   if (err) return err;
-  console.log('The mongodb has been connected on: ', configEnv.MONGODB_URI);
+  console.log(`The mongodb has been connected on: ${configEnv.MONGODB_URI}`);
 });
 
 const app: express.Application = express();
-const PORT: number = process.env.PORT || 1337;
+const PORT: any = process.env.PORT || 1337;
 
 app.use(json());
 app.use(urlencoded({ extended: false }));

@@ -5,3 +5,4 @@ client/**/*.js*
 config/**/*.js*
 server/**/*.js*
 test/**/*.js*
+tools/**.*.js*

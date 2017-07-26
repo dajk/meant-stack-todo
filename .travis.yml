@@ -1,17 +1,15 @@
 language: node_js
-
-node_js:
-- 6
+node_js: stable
 
 sudo: false
 
 os:
 - linux
+# - osx
 
 matrix:
   exclude:
   - os: osx
-    node_js: 5
 
 cache:
   yarn: true

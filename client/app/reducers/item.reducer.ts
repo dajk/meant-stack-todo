@@ -6,7 +6,7 @@ export const ADD_ITEM = 'ADD_ITEM';
 export const REMOVE_ITEM = 'REMOVE_ITEM';
 export const UPDATE_ITEM = 'UPDATE_ITEM';
 
-export const itemsReducer: ActionReducer<any> = (state: ItemI[] = [], action: Action) => {
+export const itemsReducer: ActionReducer<any> = (state: ItemI[] = [], action: any) => {
   switch (action.type) {
     case 'INIT_ITEMS':
       return action.payload;
@@ -28,7 +28,7 @@ export const itemsReducer: ActionReducer<any> = (state: ItemI[] = [], action: Ac
         }
         return item;
       });
-      
+
     default:
       return state;
   }

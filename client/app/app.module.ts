@@ -14,7 +14,7 @@ import { StatusPipe } from './pipes/item.pipe';
     BrowserModule,
     FormsModule,
     HttpModule,
-    StoreModule.provideStore({ items: itemsReducer }, { item: [] })
+    StoreModule.forRoot({ items: itemsReducer }, { initialState: {} })
   ],
   declarations: [ AppComponent, ItemsComponent, StatusPipe ],
   bootstrap:    [ AppComponent ]

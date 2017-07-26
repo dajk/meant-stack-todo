@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ItemsService {
-	
+
   constructor(private _http: Http) { }
 
   getItems(): Observable<ItemI[]> {
