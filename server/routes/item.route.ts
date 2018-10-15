@@ -15,14 +15,17 @@ interface RequestI extends Request {
   params: any
 }
 
-itemRouter.get('/items', (req: Request, res: Response, next: NextFunction) => {
+// Route for /items
+itemRouter.route('/items')
+
+.get((req: Request, res: Response, next: NextFunction) => {
   Item.find({}).sort({'isDone': 1}).exec((err, results: any[]) => {
     if (err) return err;
     res.json(results);
   });
-});
+})
 
-itemRouter.post('/items', (req: RequestI, res: Response, next: NextFunction) => {
+.post((req: RequestI, res: Response, next: NextFunction) => {
   if (!req.body.title.trim() && req.body.title.trim().length === 0) {
     res.status(400).json({message: 'You cannot create title without string'});
     return;
@@ -36,14 +39,18 @@ itemRouter.post('/items', (req: RequestI, res: Response, next: NextFunction) => 
   });
 });
 
-itemRouter.delete('/items/:id', (req: RequestI, res: Response, next: NextFunction) => {
+
+// Route with params
+itemRouter.route('/items/:id')
+
+.delete((req: RequestI, res: Response, next: NextFunction) => {
   Item.remove({_id: req.params.id}).exec((err, result) => {
     if (err) res.status(400).send(err);
     res.json(req.params.id);
   });
-});
+})
 
-itemRouter.put('/items/:id', (req: RequestI, res: Response, next: NextFunction) => {
+.put((req: RequestI, res: Response, next: NextFunction) => {
   if (!req.body.title.trim() && req.body.title.trim().length === 0) {
     res.status(400).json({message: 'You cannot update title without string'});
     return;
